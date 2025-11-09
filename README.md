@@ -28,7 +28,6 @@ To develop hands-on experience in Python-based scientific data analysis and visu
   - **Right Panel:** Wind magnitude and direction (`u10`, `v10`)
 - Visualization built using **xarray**, **matplotlib**, and **cartopy**.
 
----
 
-## 📁 Repository Structure
+
 
