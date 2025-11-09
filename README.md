@@ -1,7 +1,7 @@
-#  Cyclone Montha — Bay of Bengal (October 2025)
+#  Cyclone Montha — Bay of Bengal (November 2025)
 
-A Python-based visualization of Cyclone Montha (2025) using reanalysis and best-track data.  
-This project integrates **IBTrACS** cyclone metadata with ERA5 atmospheric variables to simulate the system’s evolution in the Bay of Bengal.
+A Python-based visualization of Cyclone **Montha (2025)** using reanalysis and best-track data.  
+This project integrates **IBTrACS** cyclone metadata with **ERA5** atmospheric variables to simulate the system’s evolution in the Bay of Bengal.
 
 ---
 
@@ -13,7 +13,7 @@ To develop hands-on experience in Python-based scientific data analysis and visu
 ##  Workflow
 
 ### 1. Data Extraction
-- Extracted Cyclone Montha (storm index 401) from IBTrACS (Last 3 Years) dataset.
+- Extracted Cyclone *Montha* (storm index 401) from **IBTrACS (Last 3 Years)** dataset.
 - Cleaned attributes to remove encoding errors.
 - Saved subset as `montha_track.nc`.
 
@@ -24,11 +24,11 @@ To develop hands-on experience in Python-based scientific data analysis and visu
 
 ### 3. Visualization
 - Dual-panel dynamic animation:
-  - Left Panel: Rainfall (tp) + Pressure (msl) contours  
-  - Right Panel: Wind magnitude and direction (`u10`, `v10`)
-- Visualization built using xarray, matplotlib, and cartopy
+  - **Left Panel:** Rainfall (tp) + Pressure (msl) contours  
+  - **Right Panel:** Wind magnitude and direction (`u10`, `v10`)
+- Visualization built using **xarray**, **matplotlib**, and **cartopy**.
 
 ---
 
-
+## 📁 Repository Structure
 
