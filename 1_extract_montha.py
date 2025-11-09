@@ -2,7 +2,7 @@ import xarray as xr
 import re
 
 # --- 1. Load dataset
-file_path = "/kaggle/input/ibtracks-last3-nc/IBTrACS.last3years.v04r01.nc"
+file_path = "/IBTrACS.last3years.v04r01.nc"
 ds = xr.open_dataset(file_path)
 
 # --- 2. Extract only Montha (storm index 401)
@@ -25,5 +25,6 @@ montha_ds = clean_attrs(montha_ds)
 
 # --- 4. Save as NetCDF using SciPy engine (offline safe)
 montha_ds.to_netcdf("montha_track.nc", engine="scipy")
+
 
 print("✅ Saved cleaned NetCDF: montha_track.nc")
