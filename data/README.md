@@ -13,7 +13,7 @@ The full datasets used in this project are not uploaded due to large size and li
 - Period: November 2025 (Cyclone Montha)
 - Files: data_stream-oper_stepType-instant.nc, data_stream-oper_stepType-accum.nc
 
-⚠️ Only small sample subsets will be uploaded for testing.
+Only small sample subsets will be uploaded for testing.
 
-### 🗺️ Shapefiles
+###  Shapefiles
 Located inside `/data/shapefiles/`
