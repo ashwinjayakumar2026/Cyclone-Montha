@@ -14,3 +14,6 @@ The full datasets used in this project are not uploaded due to large size and li
 - Files: data_stream-oper_stepType-instant.nc, data_stream-oper_stepType-accum.nc
 
 ⚠️ Only small sample subsets will be uploaded for testing.
+
+### 🗺️ Shapefiles
+Located inside `/data/shapefiles/`
