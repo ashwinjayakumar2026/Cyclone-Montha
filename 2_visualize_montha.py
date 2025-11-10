@@ -11,15 +11,15 @@ from matplotlib.colors import LinearSegmentedColormap, PowerNorm
 # --------------------------
 # Load data
 # --------------------------
-track_ds = xr.open_dataset("/kaggle/input/montha-tracks/montha_track.nc")
+track_ds = xr.open_dataset("data/sample_ibtracs_montha_subset.nc")
 track_lat = track_ds['lat'].values[0]
 track_lon = track_ds['lon'].values[0]
 track_time = track_ds['time'].values[0]
 valid_idx = ~np.isnan(track_lat) & ~np.isnan(track_lon)
 track_lat, track_lon, track_time = track_lat[valid_idx], track_lon[valid_idx], track_time[valid_idx]
 
-era_ds = xr.open_dataset("/kaggle/input/era-5re/data_stream-oper_stepType-instant.nc")
-precip_ds = xr.open_dataset("/kaggle/input/era-5re/data_stream-oper_stepType-accum.nc")
+era_ds = xr.open_dataset("data/sample_era5_instant.nc")
+precip_ds = xr.open_dataset("data/sample_era5_accum.nc")
 u10, v10, msl, tp = era_ds['u10'], era_ds['v10'], era_ds['msl'], precip_ds['tp']
 
 # --------------------------
@@ -50,8 +50,8 @@ wind_cmap = plt.cm.get_cmap("turbo")
 # --------------------------
 def setup_map(ax):
     ax.set_extent([70, 100, 5, 30], crs=ccrs.PlateCarree())
-    india_shp = "/kaggle/input/shps-needed/India/India-State-and-Country-Shapefile-Updated-Jan-2020-master/India_State_Boundary.shp"
-    coast_shp = "/kaggle/input/shps-needed/Coastline/ne_50m_coastline.shp"
+    india_shp = "data/shapefiles/India_State_Boundary.shp"
+    coast_shp = "data/shapefiles/ne_50m_coastline.shp"
     india_reader = shpreader.Reader(india_shp)
     coast_reader = shpreader.Reader(coast_shp)
     ax.add_geometries(india_reader.geometries(), ccrs.PlateCarree(),
@@ -199,4 +199,5 @@ def animate_cyclone(track_lat, track_lon, track_time, u10, v10, msl, tp):
 # --------------------------
 # Run
 # --------------------------
+
 animate_cyclone(track_lat_smooth, track_lon_smooth, track_time_smooth, u10, v10, msl, tp)
