@@ -1,1 +1,7 @@
+###  Shapefiles
+This visualization uses:
+- India State Boundary shapefile from [DataMeet India](https://datameet.org)
+- Coastline shapefile from [Natural Earth](https://www.naturalearthdata.com)
+
+Both are included in `/data/shapefiles/` for offline use.
 
