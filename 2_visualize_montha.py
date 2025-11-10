@@ -50,8 +50,8 @@ wind_cmap = plt.cm.get_cmap("turbo")
 # --------------------------
 def setup_map(ax):
     ax.set_extent([70, 100, 5, 30], crs=ccrs.PlateCarree())
-    india_shp = "data/shapefiles/India_State_Boundary.shp"
-    coast_shp = "data/shapefiles/ne_50m_coastline.shp"
+    india_shp = "data/India_State_Boundary.shp"
+    coast_shp = "data/ne_50m_coastline.shp"
     india_reader = shpreader.Reader(india_shp)
     coast_reader = shpreader.Reader(coast_shp)
     ax.add_geometries(india_reader.geometries(), ccrs.PlateCarree(),
@@ -201,3 +201,4 @@ def animate_cyclone(track_lat, track_lon, track_time, u10, v10, msl, tp):
 # --------------------------
 
 animate_cyclone(track_lat_smooth, track_lon_smooth, track_time_smooth, u10, v10, msl, tp)
+
