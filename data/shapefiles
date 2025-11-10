@@ -4,6 +4,6 @@ This visualization uses:
 - Coastline shapefile from [Natural Earth](https://www.naturalearthdata.com)
 
 Shapefiles are provided as a compressed archive `shapefiles.zip`.
-Extract them into this folder before running the scripts.
+Extract them  before running the scripts.
 
 
