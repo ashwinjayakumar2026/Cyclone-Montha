@@ -2,9 +2,8 @@ import xarray as xr
 import re
 
 # --- 1. Load dataset
-file_path = "/IBTrACS.last3years.v04r01.nc"
+file_path = "data/sample_ibtracs_montha_subset.nc"
 ds = xr.open_dataset(file_path)
-
 # --- 2. Extract only Montha (storm index 401)
 montha_ds = ds.isel(storm=[401])
 
@@ -28,3 +27,4 @@ montha_ds.to_netcdf("montha_track.nc", engine="scipy")
 
 
 print("✅ Saved cleaned NetCDF: montha_track.nc")
+
