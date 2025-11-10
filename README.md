@@ -17,6 +17,8 @@ To develop hands-on experience in Python-based scientific data analysis and visu
 - Cleaned attributes to remove encoding errors.
 - Saved subset as `montha_track.nc`.
 
+*A preprocessing script (`1_prepare_ibtracs_montha.py`) is included to demonstrate how the Montha track was originally extracted and cleaned from the full IBTrACS dataset — running it is optional, as the processed data is already provided in `/data/`.*
+
 ### 2. Data Integration
 - Loaded ERA5 variables: `u10`, `v10`, `msl`, `tp`.
 - Matched ERA5 timestamps with cyclone track.
