@@ -8,9 +8,8 @@ from scipy.interpolate import interp1d
 from scipy.ndimage import gaussian_filter
 from matplotlib.colors import LinearSegmentedColormap, PowerNorm
 
-# --------------------------
 # Load data
-# --------------------------
+
 track_ds = xr.open_dataset("data/sample_ibtracs_montha_subset.nc")
 track_lat = track_ds['lat'].values[0]
 track_lon = track_ds['lon'].values[0]
@@ -22,9 +21,7 @@ era_ds = xr.open_dataset("data/sample_era5_instant.nc")
 precip_ds = xr.open_dataset("data/sample_era5_accum.nc")
 u10, v10, msl, tp = era_ds['u10'], era_ds['v10'], era_ds['msl'], precip_ds['tp']
 
-# --------------------------
 # Smooth the track
-# --------------------------
 n_interp = len(track_lat) * 4
 f_lat = interp1d(np.arange(len(track_lat)), track_lat, kind='cubic')
 f_lon = interp1d(np.arange(len(track_lon)), track_lon, kind='cubic')
@@ -34,20 +31,14 @@ total_duration = track_time[-1] - track_time[0]
 step = total_duration / (n_interp - 1)
 track_time_smooth = np.array([track_time[0] + i * step for i in range(n_interp)], dtype='datetime64[s]')
 
-# --------------------------
 # Custom colormaps
-# --------------------------
-
-
 precip_colors = ["#e0f3f8", "#91bfdb", "#4575b4", "#fee090", "#fc8d59", "#d73027"]
 precip_cmap = LinearSegmentedColormap.from_list("wmo_rain", precip_colors)
 precip_norm = PowerNorm(gamma=0.6, vmin=0, vmax=25)
 
 wind_cmap = plt.cm.get_cmap("turbo")
 
-# --------------------------
 # Map setup
-# --------------------------
 def setup_map(ax):
     ax.set_extent([70, 100, 5, 30], crs=ccrs.PlateCarree())
     india_shp = "data/India_State_Boundary.shp"
@@ -65,9 +56,8 @@ def setup_map(ax):
     ax.text(87, 18, 'Bay of Bengal', fontsize=12, fontstyle='italic')
     ax.text(93, 13, 'Andaman Islands', fontsize=11, fontstyle='italic')
 
-# --------------------------
+
 # Animation function
-# --------------------------
 def animate_cyclone(track_lat, track_lon, track_time, u10, v10, msl, tp):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(18, 9),
                                    subplot_kw={'projection': ccrs.PlateCarree()})
@@ -101,9 +91,8 @@ def animate_cyclone(track_lat, track_lon, track_time, u10, v10, msl, tp):
     fig.colorbar(sm_wind, ax=ax2, orientation='horizontal', fraction=0.05,
                  pad=0.07, label='Wind Speed (m/s)')
 
-    # --------------------------
+
     # Frame update
-    # --------------------------
     def update(frame):
         nonlocal pressure_plot, precip_plot, wind_mag_plot, quiver_plot
         t = track_time[frame]
@@ -196,9 +185,7 @@ def animate_cyclone(track_lat, track_lon, track_time, u10, v10, msl, tp):
     anim.save("montha.mp4", fps=8, dpi=150)
     plt.close()
 
-# --------------------------
 # Run
-# --------------------------
-
 animate_cyclone(track_lat_smooth, track_lon_smooth, track_time_smooth, u10, v10, msl, tp)
+
 
